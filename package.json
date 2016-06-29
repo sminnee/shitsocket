@@ -1,0 +1,15 @@
+{
+  "name": "shitsocket",
+  "version": "0.0.1",
+  "description": "Simulates laggy websockets for testing networked apps.",
+  "main": "src/index.js",
+  "scripts": {
+    "test": "tape tests/*.js | tap-spec"
+  },
+  "author": "Sam Minnee <sam.minnee@gmail.com>",
+  "license": "MIT",
+  "devDependencies": {
+    "tap-spec": "^4.1.1",
+    "tape": "^4.6.0"
+  }
+}
