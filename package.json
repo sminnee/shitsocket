@@ -1,8 +1,8 @@
 {
   "name": "shitsocket",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "Simulates laggy websockets for testing networked apps.",
-  "main": "src/index.js",
+  "main": "src/ShitSocket.js",
   "scripts": {
     "test": "tape tests/*.js | tap-spec"
   },

@@ -1,7 +1,7 @@
 var test = require('tape');
 
 test("ShitSocket", function (t) {
-  var ShitSocket = require('../src/index');
+  var ShitSocket = require('../src/ShitSocket');
   var shitSocket;
   var nestedSocket;
   var calls;
@@ -67,6 +67,31 @@ test("ShitSocket", function (t) {
       ]);
       t.end();
     }, 35);
+  });
+
+  t.test("should delay callbacks", function (t) {
+    t.plan(2);
+
+    calls = [];
+    callbacks = [];
+    shitSocket = new ShitSocket(nestedSocket);
+    shitSocket.getNextDelay = function() { return 10; }
+
+    shitSocket.on('m', function (data) {
+      calls.push(['on', 'm', data]);
+    });
+    callbacks[0]('d1');
+
+
+    setTimeout(function() {
+      t.deepEqual(calls, []);
+    }, 5);
+
+    setTimeout(function() {
+      t.deepEqual(calls, [ ['on', 'm', 'd1' ]]);
+      t.end();
+    }, 15);
+
   });
 
   t.test("should allow adding and removing of callbacks", function (t) {

@@ -26,7 +26,7 @@ ShitSocket.prototype.on = function (message, callback) {
 
     setTimeout(function() {
       self.buffer.release(identifier);
-    }, this.getNextDelay());
+    }, self.getNextDelay());
   }
 
   this.originalCallbacks.push(callback);
